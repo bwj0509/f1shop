@@ -1,5 +1,7 @@
 import React from 'react';
 import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -8,12 +10,12 @@ function Navs(){
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                <Navbar.Brand href="#home"><img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg/320px-Mercedes_AMG_Petronas_F1_Logo.svg.png'></img></Navbar.Brand>
+                <Navbar.Brand href="#home"><Link to='/'> <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg/320px-Mercedes_AMG_Petronas_F1_Logo.svg.png'></img></Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                     <Nav.Link href="#features">Introduce</Nav.Link>
-                    <Nav.Link href="#pricing">Product</Nav.Link>
+                    <Nav.Link href="/product">Product</Nav.Link>
                     <NavDropdown title="Drivers" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Lewis Hamilton</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">George Russell</NavDropdown.Item>
