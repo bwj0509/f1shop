@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 function Cart(props){
+
+    let [popupShow, popupShowChange] = useState(true);
+
     return(
         <div className="wid-80">
             <table class="table">
@@ -35,6 +38,19 @@ function Cart(props){
                     })}
                 </tbody>
             </table>
+
+            {popupShow === true
+            ?<div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">신규가입 특가!</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <button type="button" class="btn btn-outline-dark marginr" data-mdb-ripple-color="dark">회원가입하기</button>
+                    <button type="button" class="btn btn-outline-danger" data-mdb-ripple-color="dark" onClick={()=>{popupShowChange(false)}}>창닫기</button>
+                </div>
+            </div>
+            :null
+            }
+
         </div>
         
     )

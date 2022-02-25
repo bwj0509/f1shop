@@ -62,3 +62,9 @@
 .marginr {
   margin-right: 4px;
 }
+
+.card {
+  width: 50%;
+  background-color: rgb(243, 243, 243);
+  margin: auto;
+}
