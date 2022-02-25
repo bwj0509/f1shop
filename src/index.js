@@ -32,6 +32,23 @@ function reducer(state = item , action){
     return copy_array;
   }
 
+  else if( action.type === 'add_cart_list'){
+    console.log('작동1')
+    let findindexvalue = state.findIndex((a)=>{return a.id == action.payload.id})
+    console.log(findindexvalue)
+    if(findindexvalue>=0){
+      console.log('작동2')
+      let copy_array = [...state];
+      copy_array[findindexvalue].quan++;
+      return copy_array;
+    }
+    else{
+      let copy_array = [...state];
+      copy_array.push(action.payload);
+      return copy_array;
+    }
+    
+  }
 
 
   else{

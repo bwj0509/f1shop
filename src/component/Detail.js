@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 function Detail(props){
@@ -30,12 +31,21 @@ function Detail(props){
                     <p>상품가격 : {props.item[params.id].price}$</p>
                     <p>상품설명 : {props.item[params.id].content}</p>
                     <hr></hr>
-                    <button type="button" class="btn btn-info btn-rounded margin5">주문하기</button>
+                    <button type="button" class="btn btn-info btn-rounded margin5" onClick={()=>{
+                        props.dispatch({type : 'add_cart_list', payload: {id:params.id, title:props.state[params.id].title ,quan:1}});
+                        history.push('/cart')
+                        }}>주문하기</button>
                     <button type="button" class="btn btn-info btn-rounded margin5" onClick={()=>{history.goBack()}}>뒤로가기</button>
                 </div>
             </div>
             
-            
         </div>
     )
-}export default Detail;
+}
+//export default Detail;
+
+function 함수(state){
+    return{
+        state:state
+    }
+}export default connect(함수)(Detail)
