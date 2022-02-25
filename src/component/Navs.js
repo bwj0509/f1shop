@@ -2,9 +2,6 @@ import React from 'react';
 import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-
-
-
 function Navs(){
     return(
         <>
@@ -24,7 +21,7 @@ function Navs(){
                     </NavDropdown>
                     </Nav>
                     <Nav>
-                    <Nav.Link href="#deets">More deets</Nav.Link>
+                    <Nav.Link href="/cart">Cart</Nav.Link>
                     <Nav.Link eventKey={2} href="#memes">
                         Dank memes
                     </Nav.Link>

@@ -3,11 +3,52 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+let item = [
+  {id:0, title:'Mercedes AMG Petronas W12 EQ', quan:2},
+  {id:1, title:'Lewis Hamilton Baseball Cap', quan:2},
+  {id:2, title:'Lewis Hamilton Sports T-Shirt', quan:2}
+]
+
+function reducer(state = item , action){
+  if( action.type === 'add_quan' ){ // 더하는 함수
+    let copy_array = [...state];
+    copy_array[action.data].quan++;
+    return copy_array;
+  }
+
+
+  else if( action.type === 'minus_quan' && state[action.data].quan > 0){ // 빼는 함수
+    let copy_array = [...state];
+
+    if(copy_array[action.data].quan == 1){ // 수량 0되면 리스트 지우기 -> 오류있음 추후 해결바람...(리스트 하나밖에 안지워짐)
+      delete copy_array[action.data];
+      return copy_array
+    }
+    copy_array[action.data].quan--;
+    return copy_array;
+  }
+
+
+
+  else{
+    return state;
+  }
+}
+
+let store = createStore(reducer);
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App/>
+      </Provider>
     </BrowserRouter>  
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,22 +1,25 @@
 export default [
     {
       id : 0,
-      title : "Car",
+      title : "Mercedes AMG Petronas W12 EQ",
       content : "f1 racing start",
-      price : 120000
+      price : 120000,
+      stock : 1
     },
   
     {
       id : 1,
-      title : "Hat",
+      title : "Lewis Hamilton Baseball Cap",
       content : "f1 racing during",
-      price : 110000
+      price : 110000,
+      stock : 1
     },
   
     {
       id : 2,
-      title : "Shirt",
+      title : "Lewis Hamilton Sports T-Shirt",
       content : "f1 racing ending",
-      price : 130000
+      price : 130000,
+      stock : 1
     }
   ] 
