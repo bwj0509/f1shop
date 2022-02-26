@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 
 function Cart(props){
 
-    let [popupShow, popupShowChange] = useState(true);
+    let [popupShow, popupShowChange] = useState(true); //state 사용
+    let state = useSelector((state)=>state); // useSelector를 이용해서 state로 값을 가져온다.
+    let dispatch = useDispatch(); // dispatch변수에 useDispatch 함수를 선언해서 쉽게 불러와서 사용 할 수 있다.
 
     return(
         <div className="wid-80">
+            <h4 className="mt-4 text-start">Your Item</h4>
             <table class="table">
             <thead>
                 <tr>
@@ -17,18 +20,18 @@ function Cart(props){
                 </tr>
             </thead>
                 <tbody>
-                    {props.state.map((a, i)=>{
+                    {state.map((a, i)=>{
                         return(
                             <>
                                 <tr>
                                     <th scope="row">{a.id}</th>
-                                        <td>{a.title}</td>
+                                        <td>{a.title}<br/></td>
                                         <td>{a.quan}</td>
                                         <td>
-                                        <button type="button" class="btn btn-dark btn-floating marginr" onClick={()=>{props.dispatch({ type : 'add_quan', data:a.id })}}>
+                                        <button type="button" class="btn btn-dark btn-floating marginr" onClick={()=>{dispatch({ type : 'add_quan', data:a.id })}}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg>
                                         </button>
-                                        <button type="button" class="btn btn-dark btn-floating" onClick={()=>{props.dispatch({ type : 'minus_quan', data:a.id })}}>
+                                        <button type="button" class="btn btn-dark btn-floating" onClick={()=>{dispatch({ type : 'minus_quan', data:a.id })}}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>
                                         </button>
                                     </td>
@@ -38,9 +41,9 @@ function Cart(props){
                     })}
                 </tbody>
             </table>
-
+            <div className="mb-4 text-end "><button type="button" class=" btn btn-outline-dark btn-rounded btn-lg " data-mdb-ripple-color="dark">주문하기</button></div>
             {popupShow === true
-            ?<div class="card">
+            ?<div class="card wid50per">
                 <div class="card-body">
                     <h5 class="card-title">신규가입 특가!</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

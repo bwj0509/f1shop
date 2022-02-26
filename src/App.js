@@ -2,15 +2,20 @@ import React from 'react';
 import './App.css';
 import itemName from './data.js'
 
+import * as mdb from 'mdb-ui-kit'; // lib
+import { Input } from 'mdb-ui-kit'; // module
+
 import Navs from './component/Navs.js';
 import Jumbo from './component/Jumbo';
 import Itemlist from './component/Itemlist';
 import Detail from './component/Detail';
 import SimpleSlider from './component/SimpleSlider';
 import Cart from './component/Cart';
+import Signup from './component/Signup';
 
 import {Route, Link, Switch} from 'react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+
 
 function App() {
 
@@ -21,7 +26,9 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <Jumbo/>
-          <SimpleSlider />
+        </Route>
+        <Route exact path='/introduce'>
+          <SimpleSlider/>
         </Route>
         <Route exact path='/product'>
           <Jumbo/>
@@ -32,6 +39,9 @@ function App() {
         </Route>
         <Route exact path='/cart'>
           <Cart item={itemName}/>
+        </Route>
+        <Route exact path='/signup'>
+          <Signup/>
         </Route>
 
      </Switch>

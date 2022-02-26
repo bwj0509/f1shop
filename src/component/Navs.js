@@ -3,6 +3,7 @@ import {Navbar, Container, NavDropdown, Nav} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 function Navs(){
+
     return(
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -11,20 +12,24 @@ function Navs(){
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                    <Nav.Link href="#features">Introduce</Nav.Link>
-                    <Nav.Link href="/product">Product</Nav.Link>
-                    <NavDropdown title="Drivers" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Lewis Hamilton</NavDropdown.Item>
+                    <Nav.Link to><Link to="/introduce" className='navcolor'>INTRODUCE</Link></Nav.Link>
+                    <Nav.Link><Link to="/product" className='navcolor'>PRODUCT</Link></Nav.Link>
+                    <NavDropdown title="LEWIS HAMILTON" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1"><img src='../lewis.jpg'></img></NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Lewis Hamilton</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                    <NavDropdown title="GEORGE RUSSELL" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1"><img src='../george.jpg'></img></NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">George Russell</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
                     </Nav>
                     <Nav>
-                    <Nav.Link href="/cart">Cart</Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
-                        Dank memes
-                    </Nav.Link>
+                    <Nav.Link><Link to="/cart" className='navcolor'>Cart</Link></Nav.Link>
+                    <Nav.Link href="/signup"><Link to="/signup" className='navcolor'>Sign up</Link></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 </Container>
