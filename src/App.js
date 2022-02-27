@@ -12,6 +12,7 @@ import Detail from './component/Detail';
 import SimpleSlider from './component/SimpleSlider';
 import Cart from './component/Cart';
 import Signup from './component/Signup';
+import Main from './component/Main';
 
 import {Route, Link, Switch} from 'react-router-dom';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -26,6 +27,7 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <Jumbo/>
+          <Main/>
         </Route>
         <Route exact path='/introduce'>
           <SimpleSlider/>
