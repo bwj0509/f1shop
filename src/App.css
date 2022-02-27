@@ -14,7 +14,7 @@
     url("/src/amg.png");
   background-size: cover;
   width: 100%;
-  height: 500px;
+  height: 300px;
   color: white;
   text-align: center;
 }
@@ -82,6 +82,52 @@
   background-color: rgba(38, 38, 38, 1) !important;
 }
 
+.font_deco0 {
+  font-weight: bold;
+  font-size: 5vw;
+  color: #eee;
+}
+.font_deco1 {
+  font-weight: bold;
+  font-size: 5vw;
+  color: rgb(91, 212, 228);
+}
+
+.main_img {
+  background-size: cover;
+  width: 60%;
+  margin: auto;
+  border: 5px solid #a8a8a8;
+}
+.main_img1 {
+  background-size: cover;
+  width: 90%;
+  margin: auto;
+  border: 1px solid #a8a8a8;
+}
+
+.text-box0 {
+  font-family: "Staatliches", cursive;
+  font-size: 5vw;
+  text-align: center;
+  color: #7deedf;
+  text-shadow: 3px 3px #1d9c8b;
+  margin: 0;
+}
+.text-box1 {
+  font-family: "Staatliches", cursive;
+  font-size: 5vw;
+  text-align: center;
+  color: #1db9a4;
+  text-shadow: 5px 5px #167c6e;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.spacing {
+  height: 40vw;
+}
+
 /*ABOUT SIGNUP...*/
 .gradient-custom-3 {
   /* fallback for old browsers */
@@ -118,4 +164,50 @@
     rgba(132, 250, 176, 1),
     rgba(143, 211, 244, 1)
   );
+}
+
+/* Swing img */
+
+.swing {
+  animation: swing ease-in-out 2s infinite alternate;
+  transform-origin: center -20px;
+  float: left;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.swing img {
+  border: 5px solid #f8f8f8;
+  display: block;
+}
+.swing:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  top: -10px;
+  left: 50%;
+  z-index: 0;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(45deg);
+}
+/* nail */
+.swing:before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: -14px;
+  left: 54%;
+  z-index: 5;
+  border-radius: 50% 50%;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
 }
