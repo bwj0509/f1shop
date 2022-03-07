@@ -8,13 +8,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 
-let item = [
-  {id:0, title:'Mercedes AMG Petronas W12 EQ', quan:2},
-  {id:1, title:'Lewis Hamilton Baseball Cap', quan:2},
-  {id:2, title:'Lewis Hamilton Sports T-Shirt', quan:2}
-]
+import itemData from './itemData.json';
+
+
+let item = itemData.item; //itemData라는 JSON파일에서 자료를 가져온다!
+
+
 
 function reducer(state = item , action){
   if( action.type === 'add_quan' ){ // 더하는 함수
@@ -22,7 +23,6 @@ function reducer(state = item , action){
     copy_array[action.data].quan++;
     return copy_array;
   }
-
 
   else if( action.type === 'minus_quan' && state[action.data].quan > 0){ // 빼는 함수
     let copy_array = [...state];
@@ -58,8 +58,8 @@ function reducer(state = item , action){
   }
 }
 
-let store = createStore(reducer);
 
+let store = createStore(combineReducers({reducer}))
 
 
 ReactDOM.render(

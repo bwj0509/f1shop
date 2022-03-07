@@ -4,7 +4,7 @@ import { connect, useDispatch, useSelector } from "react-redux";
 function Cart(props){
 
     let [popupShow, popupShowChange] = useState(true); //state 사용
-    let state = useSelector((state)=>state); // useSelector를 이용해서 state로 값을 가져온다.
+    let state = useSelector((state)=>state.reducer); // useSelector를 이용해서 state로 값을 가져온다.
     let dispatch = useDispatch(); // dispatch변수에 useDispatch 함수를 선언해서 쉽게 불러와서 사용 할 수 있다.
 
     return(
