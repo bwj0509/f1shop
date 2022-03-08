@@ -5,8 +5,7 @@ import { Nav } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group"
 
 function Detail(props){
-    let state = useSelector((state)=>state);
-
+    let state = useSelector((state)=>state.reducer);
     let [show_popup, show_popupChange] = useState(true);
     let [tabnumber, tabChange] = useState(0);
     let [cssswitch, cssswitchChange] = useState(false);
@@ -33,13 +32,13 @@ function Detail(props){
                         <img src={`../item_${params.id}.jpg`} width='80%'></img>
                     </div>
                     <div className="col-md-4 mt-5">
-                        <h4>{props.item[params.id].title}</h4>
+                        <h4>{state[params.id].title}</h4>
                         <hr></hr>
-                        <p>상품가격 : {props.item[params.id].price}$</p>
-                        <p>상품설명 : {props.item[params.id].content}</p>
+                        <p>상품가격 : {state[params.id].price}$</p>
+                        <p>상품설명 : {state[params.id].content}</p>
                         <hr></hr>
                         <button type="button" class="btn btn-info btn-rounded margin5" onClick={()=>{
-                            props.dispatch({type : 'add_cart_list', payload: {id:params.id, title:state.reducer[params.id].title ,quan:1}});
+                            props.dispatch({type : 'add_cart_list', payload: {id:params.id, title:state[params.id].title ,quan:1}});
                             history.push('/cart')
                             }}>주문하기</button>
                         <button type="button" class="btn btn-info btn-rounded margin5" onClick={()=>{history.goBack()}}>뒤로가기</button>

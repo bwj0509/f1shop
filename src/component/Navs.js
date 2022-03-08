@@ -16,7 +16,7 @@ function Navs(){
                     <Nav.Link><Link to="/product" className='navcolor'>PRODUCT</Link></Nav.Link>
                     <NavDropdown title="LEWIS HAMILTON" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1"><img src='../lewis.jpg'></img></NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Lewis Hamilton</NavDropdown.Item>
+                        <NavDropdown.Item><Link to='/apiuse'>Lewis Hamilton</Link></NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
