@@ -8,10 +8,10 @@ function Itemlist(props){
 
     let item = useSelector((state)=>state.reducer)// useSelcect를 사용해서 reducer값을 가져온다.
     let history = useHistory();
-    let [showCount, showCountChange] = useState(3)
+    let [showCount, showCountChange] = useState(6)
 
     function Countchange(){
-        showCountChange(6)
+        showCountChange(showCount+3)
     }
 
     return(
@@ -22,7 +22,7 @@ function Itemlist(props){
                             if(i < showCount){
                                 return(
                                     <div className='col-md-4'>
-                                        <img className='pointer' src={`../item_${i}.jpg`} width='70%' onClick={()=>{history.push(`/product/${i}`)}}></img>
+                                        <img className='pointer img_size' src={`../item_${i}.jpg`} width='70%' onClick={()=>{history.push(`/product/${i}`)}}></img>
                                         <h4>{item[i].title}</h4>
                                         <p> {item[i].content} & {item[i].price}₩</p>
                                     </div>

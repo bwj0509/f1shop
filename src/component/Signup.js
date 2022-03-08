@@ -30,7 +30,6 @@ function Signup(){
             document.querySelector('#form3Example4cdg').value = null;
 
             personalinfoChange(copy_obj);
-            console.log(personalinfo);
         }
 
     }
@@ -86,7 +85,7 @@ function Signup(){
                                 </div>
 
                                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
-                                <p>{personalinfo.name},{personalinfo.email},{personalinfo.passwd}</p>
+                                <p></p>
                             </form>
 
                             </div>
