@@ -25,7 +25,7 @@ function App() {
   // Apiuse 컴포넌트에서 사용하는 API인데 App컴포넌트가 아닌 Apiuse컴포넌트로 옮겨야하고, 데이터 가공하는 방법도 확인해봐야함...., 에러도 좀 잡고..
   let [apidata, apidataChange] = useState('');
 
-  axios.get('http://ergast.com/api/f1/drivers/alonso/circuits/monza/races')
+  axios.get('http://ergast.com/api/f1/drivers?=123')
   .then((result)=>{
     apidataChange(result.data);
   })
