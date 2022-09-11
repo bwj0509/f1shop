@@ -13,7 +13,7 @@ function Itemlist(props){
     function Countchange(){
         showCountChange(showCount+3)
     }
-
+    console.log(item)
     return(
         <div className='container mt-1'>
             <Fade bottom>

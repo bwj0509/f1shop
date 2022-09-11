@@ -4,7 +4,7 @@
             "id":"0",
             "title":"Mercedes Car",
             "content":"Mercedes AMG Petronas W12 EQ",
-            "quan":"2",
+            "quan":2,
             "price":"12000",
             "Description":"The cars make the race, so celebrate a winning machine with this. A brilliant keepsake to remind you of classic moments, and a great decoration as well."
         },
@@ -12,7 +12,7 @@
             "id":"1",
             "title":"Lewis Cap",
             "content":"Lewis Hamilton Baseball Cap",
-            "quan":"2",
+            "quan":2,
             "price":"13000",
             "Description":"Get the look of your favourite racing team. This iconic item will add some speed style to any other outfit and you can show off your allegiance whether trackside or anywhere else!"
         },
@@ -20,7 +20,7 @@
             "id":"2",
             "title":"Lewis T-Shirt",
             "content":"Lewis Hamilton Sports T-Shirt",
-            "quan":"2",
+            "quan":2,
             "price":"32000",
             "Description":"Wear the love of your chosen team at any time. Everyone needs t-shirts so make sure yours is built with F1 precision and style."
         },
@@ -28,7 +28,7 @@
             "id":"3",
             "title":"Pro Driver Shoes",
             "content":"Mercedes AMG Petronas W13",
-            "quan":"1",
+            "quan":1,
             "price":"600000",
             "Description":"Get the ultimate F1 fan look with these trainers. They're branded with F1 detailing and are engineered for a comfortable and practical fit, great for a trackside look or wearing day to day."
         },
@@ -36,7 +36,7 @@
             "id":"4",
             "title":"Team Hooded Sweat",
             "content":"Mercedes AMG Petronas F1 2022 Team Hooded",
-            "quan":"1",
+            "quan":1,
             "price":"20000",
             "Description":"Take something that's in everyone's wardrobe and add your team's precision styling. Get that authentic trackside feel wherever you are with this beautiful garment, and feel like you're ready for anything."
         },
@@ -44,7 +44,7 @@
             "id":"5",
             "title":"Collectors Edition Poster",
             "content":"AMG Petronas F1 Team 8 World Constructor Championship Wins",
-            "quan":"1",
+            "quan":1,
             "price":"73000",
             "Description":"Mercedes are the Formula 1 Constructors’ World Champions for the eighth time! The team clinched the title at the final round of the season in Abu Dhabi thanks to Lewis Hamilton, ably backed up by his team-mate Valtteri Bottas. It means the German manufacturer has won every title since the start of the hybrid-powered era which dates back to 2014."
         }

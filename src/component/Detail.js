@@ -58,7 +58,7 @@ function Detail(props){
                     </Nav.Item>
                 </Nav>
 
-                <CSSTransition in={cssswitch} classNames="wow" timeout={500}>
+                <CSSTransition in={cssswitch} classNames="wow" timeout={2000}>
                     <TapContent tabnumber={tabnumber} cssswitchChange={cssswitchChange}/> 
                 </CSSTransition>
             </div>

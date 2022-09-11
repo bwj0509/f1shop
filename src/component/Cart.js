@@ -9,6 +9,9 @@ function Cart(props){
     let state = useSelector((state)=>state.reducer); // useSelector를 이용해서 state로 값을 가져온다.
     let dispatch = useDispatch(); // dispatch변수에 useDispatch 함수를 선언해서 쉽게 불러와서 사용 할 수 있다.
 
+    let filterdState = state.filter(item => item.quan>0) // map함수를 쓰면 안되고 filter함수를 써야한다...
+    console.log(filterdState)
+
     return(
         <div className="wid-80">
             <h4 className="mt-4 text-start">Your Item</h4>
@@ -22,23 +25,22 @@ function Cart(props){
                 </tr>
             </thead>
                 <tbody>
-                    {state.map((a, i)=>{
-                        return(
-                            <>
-                                <tr>
-                                    <th scope="row">{a.id}</th>
-                                        <td>{a.title}<br/></td>
-                                        <td>{a.quan}</td>
-                                        <td>
-                                        <button type="button" class="btn btn-dark btn-floating marginr" onClick={()=>{dispatch({ type : 'add_quan', data:a.id })}}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg>
-                                        </button>
-                                        <button type="button" class="btn btn-dark btn-floating" onClick={()=>{dispatch({ type : 'minus_quan', data:a.id })}}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </>
+                    {filterdState.map((a, i)=>{
+                        return(<>
+                            <tr>
+                                <td scope="row">{a.id}</td>
+                                    <td>{a.title}<br/></td>
+                                    <td>{a.quan}</td>
+                                    <td>
+                                    <button type="button" class="btn btn-dark btn-floating marginr" onClick={()=>{dispatch({ type : 'add_quan', id:a.id })}}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg>
+                                    </button>
+                                    <button type="button" class="btn btn-dark btn-floating" onClick={()=>{dispatch({ type : 'minus_quan', id:a.id })}}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </>
                         )
                     })}
                 </tbody>

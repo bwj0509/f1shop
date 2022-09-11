@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navs/>
+      <Navs/> {/* 상단바는 무조건 보여주게 설정 */}
       <Switch>
         <Route exact path='/'>
           <Jumbo/>
