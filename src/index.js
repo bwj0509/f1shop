@@ -17,6 +17,7 @@ let item = itemData.item; //itemData라는 JSON파일에서 자료를 가져온�
 
 
 function reducer(state = item, action){ // 밑에 if-else문을 switch문으로 바꾸는중...
+
   switch(action.type){
     case 'add_quan':
       return (
@@ -25,6 +26,10 @@ function reducer(state = item, action){ // 밑에 if-else문을 switch문으로 
     case 'minus_quan':
       return(
         state.map((item, index)=>item.id === action.id?{...item, quan:--item.quan}:item)
+      )
+    case 'add_cart_list':
+      return(
+        state.map((item, index)=> item.id === action.id?{...item, quan:Number(action.quan)+item.quan}:item)
       )
 
     default:

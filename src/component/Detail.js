@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min
 import { Nav } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group"
 
+
 function Detail(props){
     let state = useSelector((state)=>state.reducer);
     let [show_popup, show_popupChange] = useState(true);
@@ -11,7 +12,7 @@ function Detail(props){
     let [cssswitch, cssswitchChange] = useState(false);
     let params = useParams();
     let history = useHistory();
-
+    let [quan, setQuan] = useState(0)
     useEffect(()=>{
         let timer = setTimeout(()=>{show_popupChange(false)},2000);
         return ()=>{clearTimeout(timer)}
@@ -37,8 +38,10 @@ function Detail(props){
                         <p>상품가격 : {state[params.id].price}$</p>
                         <p>상품설명 : {state[params.id].content}</p>
                         <hr></hr>
+                        <input placeholder="수량" onChange={(e)=>{setQuan(e.target.value)}}></input>
+                        <br />
                         <button type="button" class="btn btn-info btn-rounded margin5" onClick={()=>{
-                            props.dispatch({type : 'add_cart_list', payload: {id:params.id, title:state[params.id].title ,quan:1}});
+                            props.dispatch({type : 'add_cart_list', id:params.id, title:state[params.id].title ,quan:quan});
                             history.push('/cart')
                             }}>주문하기</button>
                         <button type="button" class="btn btn-info btn-rounded margin5" onClick={()=>{history.goBack()}}>뒤로가기</button>

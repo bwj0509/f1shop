@@ -10,7 +10,6 @@ function Cart(props){
     let dispatch = useDispatch(); // dispatch변수에 useDispatch 함수를 선언해서 쉽게 불러와서 사용 할 수 있다.
 
     let filterdState = state.filter(item => item.quan>0) // map함수를 쓰면 안되고 filter함수를 써야한다...
-    console.log(filterdState)
 
     return(
         <div className="wid-80">
