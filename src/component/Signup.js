@@ -2,37 +2,49 @@ import React, { useState } from "react";
 
 
 function Signup(){
-
-
-    let [personalinfo, personalinfoChange] = useState({
-        name:"",
-        email:"",
-        passwd:""
+    let [logininfo, setLogininfo] = useState({
+        username:'',
+        email:'',
+        password:'',
+        confirmpassword:''
     });
 
-    function submit(){
-        let copy_obj = {...personalinfo};
+    function onSubmit(){
+        // let copy_obj = {...personalinfo};
 
-        if(document.querySelector('#form3Example4cg').value != document.querySelector('#form3Example4cdg').value ){
-            alert('패스워드가 일치하지 않습니다.');
-            document.querySelector('#form3Example4cg').value = null;
-            document.querySelector('#form3Example4cdg').value = null;
+        // if(document.querySelector('#form3Example4cg').value != document.querySelector('#form3Example4cdg').value ){
+        //     alert('패스워드가 일치하지 않습니다.');
+        //     document.querySelector('#form3Example4cg').value = null;
+        //     document.querySelector('#form3Example4cdg').value = null;
 
-        }
-        else{
-            copy_obj.name = document.querySelector('#form3Example1cg').value;
-            copy_obj.email = document.querySelector('#form3Example3cg').value;
-            copy_obj.passwd = document.querySelector('#form3Example4cg').value;
+        // }
+        // else{
+        //     copy_obj.name = document.querySelector('#form3Example1cg').value;
+        //     copy_obj.email = document.querySelector('#form3Example3cg').value;
+        //     copy_obj.passwd = document.querySelector('#form3Example4cg').value;
     
-            document.querySelector('#form3Example1cg').value = null;
-            document.querySelector('#form3Example3cg').value = null;
-            document.querySelector('#form3Example4cg').value = null;
-            document.querySelector('#form3Example4cdg').value = null;
+        //     document.querySelector('#form3Example1cg').value = null;
+        //     document.querySelector('#form3Example3cg').value = null;
+        //     document.querySelector('#form3Example4cg').value = null;
+        //     document.querySelector('#form3Example4cdg').value = null;
 
-            personalinfoChange(copy_obj);
-        }
-
+        //     personalinfoChange(copy_obj);
+        // }
+        // console.log(personalinfo)
     }
+
+    const onChange = (e) =>{
+        console.log('작동')
+        const {name, value} = e.target
+        console.log(name, value)
+        setLogininfo({
+            ...logininfo,
+            [name]:value
+        })
+        console.log(logininfo)
+    }
+    
+
 
 
     return(
@@ -49,25 +61,29 @@ function Signup(){
                             <form>
 
                                 <div class="form-outline mb-4">
-                                <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                <input type="text" onChange={onChange} name='username' id="form3Example1cg" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Example1cg">Your Name</label>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                                <input type="email" id="form3Example3cg" onChange={onChange} name='email' class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Example3cg">Your Email</label>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                                <label class="form-label" for="form3Example4cg">Password</label>
+                                <input type="password" onChange={onChange} name='password' id="form3Example4cg" class="form-control form-control-lg" />
+                                <label class="form-label" for="form3Example4cg">Password
+                                    {(logininfo.password.length < 8 && logininfo.password.length >0) ? <span style={{color:'red'}}>  UNDER 8</span> : null }
+                                </label>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                                <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                                <input type="password" onChange={onChange} name='confirmpassword' id="form3Example4cdg" class="form-control form-control-lg" />
+                                <label class="form-label" for="form3Example4cdg">Repeat your password
+                                    {(logininfo.password !== logininfo.confirmpassword) && logininfo.confirmpassword.length >0? <span style={{color:'red'}}>  NOT SAME</span>:null  }
+                                </label>
                                 </div>
-
+                                
                                 <div class="form-check d-flex justify-content-center mb-5">
                                 <input
                                     class="form-check-input me-2"
@@ -81,7 +97,7 @@ function Signup(){
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                <button onClick={submit} type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                <button onClick={onSubmit} type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                                 </div>
 
                                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
